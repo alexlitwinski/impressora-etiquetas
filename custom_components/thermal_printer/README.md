@@ -19,7 +19,7 @@ Integração customizada para Home Assistant que permite controlar impressoras t
 1. Abra o HACS no Home Assistant
 2. Vá para "Integrações"
 3. Clique no menu (⋮) e selecione "Repositórios customizados"
-4. Adicione este repositório: `https://github.com/seu_usuario/thermal_printer`
+4. Adicione este repositório: `https://github.com/alexlitwinski/impressora-etiquetas`
 5. Selecione "Integração" como categoria
 6. Clique em "Adicionar"
 7. Procure por "Thermal Printer" e instale
@@ -314,8 +314,8 @@ MIT License - veja [LICENSE](LICENSE) para detalhes.
 
 ## 🐝 Suporte
 
-- 🐛 **Bugs:** Abra uma [issue](https://github.com/seu_usuario/thermal_printer/issues)
-- 💡 **Sugestões:** Use as [discussions](https://github.com/seu_usuario/thermal_printer/discussions)
+- 🐛 **Bugs:** Abra uma [issue](https://github.com/alexlitwinski/impressora-etiquetas/issues)
+- 💡 **Sugestões:** Use as [discussions](https://github.com/alexlitwinski/impressora-etiquetas/discussions)
 - 💬 **Comunidade:** [Fórum Home Assistant](https://community.home-assistant.io/)
 
 ## 🌟 Roadmap
