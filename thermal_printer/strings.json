@@ -1,0 +1,37 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configurar Impressora Térmica",
+        "description": "Configure sua impressora térmica Bluetooth. {devices_found} dispositivos encontrados.",
+        "data": {
+          "mac_address": "Endereço MAC da Impressora",
+          "name": "Nome da Impressora"
+        }
+      },
+      "bluetooth_confirm": {
+        "title": "Confirmar Impressora Descoberta",
+        "description": "Deseja adicionar a impressora térmica '{name}'?"
+      }
+    },
+    "error": {
+      "invalid_mac": "Endereço MAC inválido. Use o formato XX:XX:XX:XX:XX:XX",
+      "cannot_connect": "Não foi possível conectar à impressora. Verifique se está ligada e próxima.",
+      "unknown": "Erro desconhecido ocorreu"
+    },
+    "abort": {
+      "already_configured": "Esta impressora já está configurada"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opções da Impressora Térmica",
+        "description": "Configure as opções da impressora",
+        "data": {
+          "name": "Nome da Impressora"
+        }
+      }
+    }
+  }
+}
