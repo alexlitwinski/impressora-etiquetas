@@ -11,6 +11,7 @@ from homeassistant.const import CONF_NAME
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 import homeassistant.helpers.config_validation as cv
+from homeassistant.helpers import selector
 
 from .const import CONF_MAC_ADDRESS, DOMAIN
 
@@ -74,10 +75,20 @@ class ThermalPrinterConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if not self.discovered_devices:
             self.discovered_devices = await self._discover_bluetooth_devices()
 
-        # Create schema with discovered devices
+        # Allow manual MAC entry while suggesting discovered devices
         if self.discovered_devices:
+            options = [
+                selector.SelectOptionDict(value=addr, label=name)
+                for addr, name in self.discovered_devices.items()
+            ]
             schema = vol.Schema({
-                vol.Required(CONF_MAC_ADDRESS): vol.In(self.discovered_devices),
+                vol.Required(CONF_MAC_ADDRESS): selector.SelectSelector(
+                    selector.SelectSelectorConfig(
+                        options=options,
+                        mode=selector.SelectSelectorMode.DROPDOWN,
+                        custom_value=True,
+                    )
+                ),
                 vol.Required(CONF_NAME, default="Impressora Térmica"): str,
             })
         else:
