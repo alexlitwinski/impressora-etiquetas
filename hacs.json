@@ -1,0 +1,6 @@
+{
+    "name": "Impressora Etiquetas",
+    "content_in_root": false,
+    "domains": ["thermal_printer"],
+    "country": "BR"
+}
