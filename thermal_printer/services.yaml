@@ -1,0 +1,99 @@
+print_text:
+  name: Imprimir Texto
+  description: Imprime texto na impressora térmica
+  fields:
+    text:
+      name: Texto
+      description: Texto a ser impresso
+      required: true
+      selector:
+        text:
+          multiline: true
+    font_size:
+      name: Tamanho da Fonte
+      description: Tamanho da fonte
+      default: "normal"
+      selector:
+        select:
+          options:
+            - label: "Pequeno"
+              value: "small"
+            - label: "Normal"
+              value: "normal"
+            - label: "Grande"
+              value: "large"
+    alignment:
+      name: Alinhamento
+      description: Alinhamento do texto
+      default: "left"
+      selector:
+        select:
+          options:
+            - label: "Esquerda"
+              value: "left"
+            - label: "Centro"
+              value: "center"
+            - label: "Direita"
+              value: "right"
+    bold:
+      name: Negrito
+      description: Texto em negrito
+      default: false
+      selector:
+        boolean:
+
+print_qr_code:
+  name: Imprimir QR Code
+  description: Imprime um QR Code
+  fields:
+    data:
+      name: Dados
+      description: Dados para o QR Code (URL, texto, etc.)
+      required: true
+      selector:
+        text:
+    size:
+      name: Tamanho
+      description: Tamanho do QR Code (1-16)
+      default: 6
+      selector:
+        number:
+          min: 1
+          max: 16
+          mode: slider
+
+print_barcode:
+  name: Imprimir Código de Barras
+  description: Imprime um código de barras
+  fields:
+    data:
+      name: Dados
+      description: Dados para o código de barras
+      required: true
+      selector:
+        text:
+    barcode_type:
+      name: Tipo
+      description: Tipo do código de barras
+      default: "CODE128"
+      selector:
+        select:
+          options:
+            - "CODE128"
+            - "CODE39"
+            - "EAN13"
+            - "UPC"
+
+feed_paper:
+  name: Avançar Papel
+  description: Avança o papel da impressora
+  fields:
+    lines:
+      name: Linhas
+      description: Número de linhas para avançar
+      default: 3
+      selector:
+        number:
+          min: 1
+          max: 10
+          mode: slider

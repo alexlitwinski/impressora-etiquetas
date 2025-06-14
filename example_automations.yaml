@@ -1,0 +1,51 @@
+# Exemplos de automações para testar a impressora
+automation:
+  # Teste básico
+  - alias: "Teste Impressora - Texto Simples"
+    trigger:
+      - platform: state
+        entity_id: input_button.teste_impressora
+    action:
+      - service: thermal_printer.print_text
+        data:
+          text: "Teste de impressão - {{ now().strftime('%H:%M:%S') }}"
+          alignment: "center"
+
+  # Teste completo
+  - alias: "Teste Impressora - Completo"
+    trigger:
+      - platform: state
+        entity_id: input_button.teste_completo
+    action:
+      - service: thermal_printer.print_text
+        data:
+          text: |
+            ================================
+                 TESTE COMPLETO
+            ================================
+          alignment: "center"
+          bold: true
+      - service: thermal_printer.print_text
+        data:
+          text: |
+            Data: {{ now().strftime('%d/%m/%Y') }}
+            Hora: {{ now().strftime('%H:%M:%S') }}
+            Sistema: Home Assistant
+          alignment: "left"
+      - service: thermal_printer.print_qr_code
+        data:
+          data: "Teste QR Code - {{ now().timestamp() }}"
+          size: 6
+      - service: thermal_printer.feed_paper
+        data:
+          lines: 3
+
+# Helpers para os testes
+input_button:
+  teste_impressora:
+    name: "Teste Impressora"
+    icon: mdi:printer
+
+  teste_completo:
+    name: "Teste Completo"
+    icon: mdi:printer-check
